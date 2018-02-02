@@ -12,14 +12,14 @@ If you need more powerfull solution for SpeechToText, you might use Google Cloud
 
 https://cloud.google.com/speech/
 
-From my expericne with RecognizerIntent, it give a very accurate result in Online Mode.
+### From my expericne with RecognizerIntent, it give a very accurate result in Online Mode.
 
 In offline it have many cons:
 
 
 1- The result is not accurate.
 
-2- Can't recognize all languase in of.
+2- Can't recognize all languases.
 
 
 
