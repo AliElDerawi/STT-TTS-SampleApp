@@ -1,6 +1,12 @@
 # SpeechToText-Sample-App:
 
-This sample project use RecognizerIntent to make Speec To Text (STT), you could read more about RecognizerIntent from here:
+
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/30336005/35740132-850bdd40-083c-11e8-92f1-6229fabb976c.png"/>
+</p>
+
+This sample project use RecognizerIntent to make Speec To Text (STT) for two languages (En,Ar), you could read more about RecognizerIntent from here:
 
 https://developer.android.com/reference/android/speech/RecognizerIntent.html
 
