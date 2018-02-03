@@ -7,6 +7,9 @@
     <!-- Application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:layoutDirection">ltr</item>
+        <item name="colorControlNormal">#FFF4D3CF</item>
+        <item name="colorControlActivated">#ff5722</item>
+        <item name="colorControlHighlight">#f44336</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
@@ -16,6 +19,19 @@
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">18sp</item>
         <item name="android:background">@drawable/spinner_arrow_settings</item>
+    </style>
+
+    <style name="EditTextStyleSettings">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:drawablePadding">16dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="colorControlNormal">#FFF4D3CF</item>
+        <item name="colorControlActivated">#ff5722</item>
+        <item name="colorControlHighlight">#f44336</item>
+        <item name="android:drawableEnd">@drawable/ic_create</item>
+        <item name="android:drawableRight">@drawable/ic_create</item>
     </style>
 
 </resources>

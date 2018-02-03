@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,7 +20,6 @@ import java.util.Locale;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener , View.OnClickListener , AdapterView.OnItemSelectedListener  {
 
-	private TextView txtSpeechInput;
 	private ImageButton btnSpeechToText;
 	private final int REQ_CODE_SPEECH_INPUT = 100;
 	private String lang;
@@ -29,6 +27,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private TextToSpeech tts;
 	private Spinner mLanguageSp;
 	private  ArrayAdapter<CharSequence> adapter;
+	private EditText mSpeechInput;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +42,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 	private void Initialize(){
 
-		txtSpeechInput = findViewById(R.id.txtSpeechInput);
+		mSpeechInput = findViewById(R.id.etSpeechInput);
 		btnSpeechToText = findViewById(R.id.btn_speech_to_text);
 		btnTextToSpeech = findViewById(R.id.btn_text_to_speech);
 		btnSpeechToText.setOnClickListener(this);
@@ -91,7 +90,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 				ArrayList<String> result = data
 						.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-				txtSpeechInput.setText(result.get(0));
+				mSpeechInput.setText(result.get(0));
 			}
 			break;
 		}
@@ -99,12 +98,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		}
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
 
     @Override
     public void onInit(int status) {
@@ -139,7 +132,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
     private void promptTextToSpeech(){
-        String readText = txtSpeechInput.getText().toString().trim();
+        String readText = mSpeechInput.getText().toString().trim();
         if (!readText.isEmpty()){
             if (!lang.equals(getResources().getString(R.string.ar_locale))){
                 if (!tts.isSpeaking()){
@@ -173,7 +166,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Toast.makeText(getApplicationContext(),"Ooop! Arabic Lang is not supported!",Toast.LENGTH_LONG).show();
             }
         } else {
-            Toast.makeText(getApplicationContext(),"Please Speak First!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Please Enter a Text First!", Toast.LENGTH_LONG).show();
         }
     }
 

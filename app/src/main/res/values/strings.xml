@@ -9,6 +9,7 @@
     <string name="rd_english">English</string>
     <string name="rd_arabic">Arabic</string>
     <string name="btn_speech_out">Text To Speech</string>
+    <string name="edit_text_hint">Enter a Text or Speech for a One</string>
 
     <string name="prompt_spinner" translatable="false">Choose your language</string>
     <string name="spinner_array" translatable="false">spinner_array</string>

@@ -11,16 +11,46 @@
     tools:context=".MainActivity"
     >
 
-    <TextView
-        android:id="@+id/txtSpeechInput"
+
+    <Spinner
+        android:id="@+id/sp_language"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:popupBackground="#f8e8de"
+        style="@style/AppSpinnerSettings"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="60dp"
+        />
+
+    <EditText
+        android:id="@+id/etSpeechInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/EditTextStyleSettings"
+        android:hint="@string/edit_text_hint"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="180dp"
+        android:inputType="text"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/sp_language"
+
+        />
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:textColor="@color/white"
-        android:textSize="26sp"
-        android:textStyle="normal"
+        android:id="@+id/btn_text_to_speech"
+        android:background="@drawable/btn_shape"
+        android:text="@string/btn_speech_out"
+        android:textSize="14sp"
+        android:layout_centerInParent="true"
+        android:padding="8dp"
+        android:textStyle="bold"
         />
 
     <LinearLayout
@@ -49,29 +79,5 @@
             android:textStyle="normal" />
 
     </LinearLayout>
-
-    <Spinner
-        android:id="@+id/sp_language"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:padding="8dp"
-        android:layout_margin="16dp"
-        android:popupBackground="#f8e8de"
-        style="@style/AppSpinnerSettings"
-        android:layout_marginRight="4dp"
-        android:layout_marginLeft="4dp"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_text_to_speech"
-        android:background="@drawable/btn_shape"
-        android:text="@string/btn_speech_out"
-        android:textSize="14sp"
-        android:layout_centerInParent="true"
-        android:padding="8dp"
-        android:textStyle="bold"
-        />
 
 </RelativeLayout>
