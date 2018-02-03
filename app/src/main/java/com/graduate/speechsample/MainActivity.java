@@ -8,24 +8,27 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class MainActivity extends Activity implements TextToSpeech.OnInitListener , View.OnClickListener {
+public class MainActivity extends Activity implements TextToSpeech.OnInitListener , View.OnClickListener , AdapterView.OnItemSelectedListener  {
 
 	private TextView txtSpeechInput;
 	private ImageButton btnSpeechToText;
 	private final int REQ_CODE_SPEECH_INPUT = 100;
-	private RadioGroup mRadioGroup;
 	private String lang;
 	private Button btnTextToSpeech;
     private TextToSpeech tts;
+	private Spinner mLanguageSp;
+	private  ArrayAdapter<CharSequence> adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,20 +38,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		Initialize();
 
 
-		mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(RadioGroup radioGroup, int id) {
-				switch (id) {
-					case R.id.rb_english:
-						lang  = "en-US";
-						break;
-					case R.id.rb_arabic :
-						lang = "ar-SA";
-						break;
-				}
-
-			}
-		});
 
 	}
 
@@ -56,17 +45,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 		txtSpeechInput = findViewById(R.id.txtSpeechInput);
 		btnSpeechToText = findViewById(R.id.btn_speech_to_text);
-		mRadioGroup = findViewById(R.id.rb_group);
-		mRadioGroup.check(R.id.rb_english);
 		btnTextToSpeech = findViewById(R.id.btn_text_to_speech);
-		lang = "en-US";
 		btnSpeechToText.setOnClickListener(this);
 		btnTextToSpeech.setOnClickListener(this);
-		btnTextToSpeech.setEnabled(false);
+		mLanguageSp = (Spinner) findViewById(R.id.sp_language);
+		adapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		mLanguageSp.setAdapter(adapter);
+		mLanguageSp.setOnItemSelectedListener(this);
+		lang = "en-GB";
 
         tts = new TextToSpeech(this, this);
 		// hide the action bar
-		getActionBar().hide();
 	}
 
 	/**
@@ -151,14 +141,34 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private void promptTextToSpeech(){
         String readText = txtSpeechInput.getText().toString().trim();
         if (!readText.isEmpty()){
-            if (!lang.equals("ar-SA")){
+            if (!lang.equals(getResources().getString(R.string.ar_locale))){
                 if (!tts.isSpeaking()){
                     tts.setSpeechRate(1);
+                    Locale locale ;
+                    switch (lang){
+                        case "en-GB" :
+                            locale = Locale.UK;
+                            break;
+                        case "fr-FR":
+                            locale = Locale.FRANCE;
+                            break;
+                        case "de-DE":
+                            locale = Locale.GERMANY;
+                            break;
+                        case "es-ES":
+                            locale = new Locale("es", "ES");
+                            break;
+                        case "ru-RU":
+                            locale = new Locale("ru","RU");
+                            break;
+                        default:
+                            locale = Locale.UK;
+                    }
+                    tts.setLanguage(locale);
                     tts.speak(readText, TextToSpeech.QUEUE_FLUSH, null);
                 }else {
                     tts.stop();
                 }
-
             }else {
                 Toast.makeText(getApplicationContext(),"Ooop! Arabic Lang is not supported!",Toast.LENGTH_LONG).show();
             }
@@ -176,6 +186,40 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             tts.shutdown();
         }
     }
+
+	@Override
+	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    	String mSelectedLang = mLanguageSp.getSelectedItem().toString();
+
+		switch (mSelectedLang){
+			case "English" :
+				lang = getResources().getString(R.string.gb_code);
+				break;
+			case "Arabic" :
+				lang = getResources().getString(R.string.ar_code);
+				break;
+			case "French":
+				lang = getResources().getString(R.string.fr_code);
+				break;
+			case "German":
+				lang = getResources().getString(R.string.de_code);
+				break;
+			case "Spanish":
+				lang = getResources().getString(R.string.es_code);
+				break;
+			case "Russian":
+				lang = getResources().getString(R.string.ru_code);
+				break;
+			default:
+				lang = getResources().getString(R.string.gb_code);
+		}
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> adapterView) {
+
+	}
 }
 
 

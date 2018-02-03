@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingStart="16dp"
-    android:paddingRight="16dp"
-    android:paddingEnd="16dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    tools:context=".MainActivity"
     >
 
     <TextView
@@ -49,30 +50,17 @@
 
     </LinearLayout>
 
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Spinner
+        android:id="@+id/sp_language"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
         android:layout_margin="16dp"
-        android:id="@+id/rb_group"
-        android:padding="16dp"
-        >
-
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rd_english"
-            android:id="@+id/rb_english"
-            android:buttonTint="@color/color_radio_button"
-            android:checked="true"
-            />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/rd_arabic"
-            android:id="@+id/rb_arabic"
-            android:buttonTint="@color/color_radio_button"
-            />
-    </RadioGroup>
+        android:popupBackground="#f8e8de"
+        style="@style/AppSpinnerSettings"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -83,6 +71,7 @@
         android:textSize="14sp"
         android:layout_centerInParent="true"
         android:padding="8dp"
+        android:textStyle="bold"
         />
 
 </RelativeLayout>
