@@ -38,4 +38,6 @@ Useful links:
 https://msdn.microsoft.com/en-us/library/ee825488%28v=cs.20%29.aspx?f=255&MSPPError=-2147217396
 2. Google Text to Speech:
 https://en.wikipedia.org/wiki/Google_Text-to-Speech
+3. Android Hive:
+https://www.androidhive.info/2012/01/android-text-to-speech-tutorial/
 
