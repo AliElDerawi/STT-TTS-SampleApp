@@ -1,4 +1,4 @@
-# SpeechToText-Sample-App:
+# SpeechToText and TextToSpeech Sample App:
 
 
 
