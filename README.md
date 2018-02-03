@@ -3,10 +3,10 @@
 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/30336005/35740132-850bdd40-083c-11e8-92f1-6229fabb976c.png"/>
+  <img src="https://user-images.githubusercontent.com/30336005/35769519-f0365cb6-0914-11e8-93d2-d170225779b9.png"/>
 </p>
 
-This sample project use RecognizerIntent to make Speec To Text (STT) for two languages (En,Ar), you could read more about RecognizerIntent from here:
+This sample project use RecognizerIntent to make Speec To Text (STT) for Six Langaues (En,Ar,Fr,De,Es,Ru), you could read more about RecognizerIntent from here:
 
 https://developer.android.com/reference/android/speech/RecognizerIntent.html
 
@@ -21,12 +21,16 @@ https://cloud.google.com/speech/
 ### From my expericne with RecognizerIntent, it give a very accurate result in Online Mode.
 
 In offline it have many cons:
-
+-------
 
 1- The result is not accurate.
 
 2- Can't recognize all languases.
 
+
+Note Google Text Speech doesn't support Arabic language, so you might use library like iSpeech:
+
+https://www.ispeech.org/developers/android
 
 
 
