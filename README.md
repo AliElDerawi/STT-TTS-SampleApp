@@ -38,7 +38,7 @@ Useful links:
 1. Google Text to Speech:
 https://en.wikipedia.org/wiki/Google_Text-to-Speech
 2. Android Hive:
-https://www.androidhive.info/2012/01/android-text-to-speech-tutorial/
+https://www.androidhive.info/2014/07/android-speech-to-text-tutorial/
 3. Table of lable culture names:
 https://msdn.microsoft.com/en-us/library/ee825488%28v=cs.20%29.aspx?f=255&MSPPError=-2147217396
 
