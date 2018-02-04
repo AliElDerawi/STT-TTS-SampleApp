@@ -37,7 +37,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		Initialize();
 
 
-
 	}
 
 	private void Initialize(){
@@ -47,7 +46,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		btnTextToSpeech = findViewById(R.id.btn_text_to_speech);
 		btnSpeechToText.setOnClickListener(this);
 		btnTextToSpeech.setOnClickListener(this);
-		mLanguageSp = (Spinner) findViewById(R.id.sp_language);
+		mLanguageSp = findViewById(R.id.sp_language);
 		adapter = ArrayAdapter.createFromResource(this, R.array.spinner_array, android.R.layout.simple_spinner_item);
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		mLanguageSp.setAdapter(adapter);
@@ -73,7 +72,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 		} catch (ActivityNotFoundException a) {
 			Toast.makeText(getApplicationContext(),
 					getString(R.string.speech_not_supported),
-					Toast.LENGTH_SHORT).show();
+					Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -109,13 +108,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
             if (result == TextToSpeech.LANG_MISSING_DATA
                     || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(this, "This Language is not supported", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
             } else {
                 btnTextToSpeech.setEnabled(true);
             }
 
         } else {
-            Toast.makeText(this, "Initialization Failed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Initialization Failed!", Toast.LENGTH_LONG).show();
         }
 
     }
